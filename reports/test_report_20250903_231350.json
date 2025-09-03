@@ -1,0 +1,93 @@
+{
+  "summary": {
+    "total_tests": 4,
+    "passed_tests": 0,
+    "failed_tests": 4,
+    "success_rate": 0.0,
+    "total_duration": 0.531344,
+    "generated_at": "2025-09-03T23:13:50.833667"
+  },
+  "results": [
+    {
+      "scenario_id": "basic_display_test",
+      "scenario_name": "Test d'Affichage de Base",
+      "status": "failed",
+      "duration": 0.190512,
+      "start_time": "2025-09-03T23:13:48.296804",
+      "end_time": "2025-09-03T23:13:48.487316",
+      "error_message": "'dict' object has no attribute 'success'",
+      "steps": [
+        {
+          "step_name": "Effacer l'afficheur",
+          "success": true,
+          "duration": 0.011782407760620117,
+          "action": "clear",
+          "expected_result": {
+            "is_empty": true
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "multiline_display_test",
+      "scenario_name": "Test d'Affichage Multi-lignes",
+      "status": "failed",
+      "duration": 0.113098,
+      "start_time": "2025-09-03T23:13:48.988950",
+      "end_time": "2025-09-03T23:13:49.102048",
+      "error_message": "'dict' object has no attribute 'success'",
+      "steps": [
+        {
+          "step_name": "Effacer l'afficheur",
+          "success": true,
+          "duration": 0.011671066284179688,
+          "action": "clear",
+          "expected_result": {
+            "is_empty": true
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "performance_test",
+      "scenario_name": "Test de Performance",
+      "status": "failed",
+      "duration": 0.126443,
+      "start_time": "2025-09-03T23:13:49.602968",
+      "end_time": "2025-09-03T23:13:49.729411",
+      "error_message": "'dict' object has no attribute 'success'",
+      "steps": [
+        {
+          "step_name": "Envoi rapide de messages",
+          "success": true,
+          "duration": 0.025532007217407227,
+          "action": "send",
+          "expected_result": {
+            "response_time": 50
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "usb_display_test",
+      "scenario_name": "Test d'Afficheur USB",
+      "status": "failed",
+      "duration": 0.101291,
+      "start_time": "2025-09-03T23:13:50.230965",
+      "end_time": "2025-09-03T23:13:50.332256",
+      "error_message": "'dict' object has no attribute 'success'",
+      "steps": [
+        {
+          "step_name": "Vérifier connexion USB",
+          "success": false,
+          "duration": 2.8133392333984375e-05,
+          "action": "validate",
+          "error_message": "'SerialEmulator' object has no attribute 'get_display_state'",
+          "expected_result": {
+            "status": "active"
+          }
+        }
+      ]
+    }
+  ]
+}

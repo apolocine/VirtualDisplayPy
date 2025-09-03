@@ -1,0 +1,228 @@
+# 🖥️ Display Profiles Configuration
+# Date: 03/09/2025
+# Description: Predefined display profiles for common hardware
+
+profiles:
+  # Serial LCD Display 20x2
+  lcd_20x2_serial:
+    name: "LCD 20x2 Série"
+    manufacturer: "Generic"
+    model: "HD44780"
+    description: "Afficheur LCD standard 20x2 caractères via série"
+    max_lines: 2
+    max_columns: 20
+    supported_baud_rates: [9600, 19200]
+    supported_commands: ["clear", "write", "cursor", "backlight"]
+    default_config:
+      connection_type: "serial"
+      display_lines: 2
+      line_length: 20
+      theme: "lcd-green"
+      baud_rate: 9600
+      clear_on_connect: true
+      cursor_visible: false
+    features:
+      graphics: false
+      custom_characters: true
+      backlight: true
+      contrast: true
+      cursor: true
+
+  # Serial LCD Display 20x4
+  lcd_20x4_serial:
+    name: "LCD 20x4 Série"
+    manufacturer: "Generic"
+    model: "HD44780"
+    description: "Afficheur LCD 20x4 caractères via série"
+    max_lines: 4
+    max_columns: 20
+    supported_baud_rates: [9600, 19200]
+    supported_commands: ["clear", "write", "cursor", "backlight"]
+    default_config:
+      connection_type: "serial"
+      display_lines: 4
+      line_length: 20
+      theme: "lcd-green"
+      baud_rate: 9600
+      clear_on_connect: true
+      cursor_visible: false
+    features:
+      graphics: false
+      custom_characters: true
+      backlight: true
+      contrast: true
+      cursor: true
+
+  # USB HID Display
+  usb_hid_display:
+    name: "Afficheur USB HID"
+    manufacturer: "Microchip"
+    model: "PIC18F4550"
+    description: "Afficheur USB HID personnalisé"
+    max_lines: 2
+    max_columns: 16
+    supported_baud_rates: []  # N/A for USB
+    supported_commands: ["clear", "write", "backlight"]
+    default_config:
+      connection_type: "usb"
+      display_lines: 2
+      line_length: 16
+      theme: "lcd-blue"
+      usb_vendor_id: "04D8"
+      usb_product_id: "000A"
+      clear_on_connect: true
+    features:
+      graphics: false
+      custom_characters: false
+      backlight: true
+      contrast: false
+      cursor: false
+
+  # LED Matrix Display
+  led_matrix_serial:
+    name: "Matrice LED"
+    manufacturer: "Generic"
+    model: "MAX7219"
+    description: "Matrice LED 32x8 via série"
+    max_lines: 1
+    max_columns: 32
+    supported_baud_rates: [9600, 19200, 38400]
+    supported_commands: ["clear", "write", "brightness"]
+    default_config:
+      connection_type: "serial"
+      display_lines: 1
+      line_length: 32
+      theme: "led-red"
+      baud_rate: 9600
+      brightness: 50
+      scrolling: true
+    features:
+      graphics: true
+      custom_characters: false
+      backlight: false
+      contrast: false
+      cursor: false
+
+  # OLED Display
+  oled_i2c:
+    name: "OLED 128x64"
+    manufacturer: "SSD1306"
+    model: "0.96inch"
+    description: "Écran OLED 128x64 pixels"
+    max_lines: 8
+    max_columns: 21
+    supported_baud_rates: []  # I2C
+    supported_commands: ["clear", "write", "pixel", "line", "rect"]
+    default_config:
+      connection_type: "serial"  # Emulated as serial
+      display_lines: 4
+      line_length: 21
+      theme: "oled-white"
+      baud_rate: 115200
+      contrast: 255
+    features:
+      graphics: true
+      custom_characters: true
+      backlight: false
+      contrast: true
+      cursor: false
+
+  # VFD Display
+  vfd_serial:
+    name: "VFD 20x2"
+    manufacturer: "Noritake"
+    model: "GU256X64-372"
+    description: "Afficheur VFD (Vacuum Fluorescent Display)"
+    max_lines: 2
+    max_columns: 20
+    supported_baud_rates: [9600, 19200]
+    supported_commands: ["clear", "write", "cursor", "brightness"]
+    default_config:
+      connection_type: "serial"
+      display_lines: 2
+      line_length: 20
+      theme: "vfd-cyan"
+      baud_rate: 9600
+      brightness: 75
+      cursor_visible: true
+    features:
+      graphics: true
+      custom_characters: true
+      backlight: false
+      contrast: false
+      cursor: true
+
+  # Network Display (TCP/IP)
+  network_display:
+    name: "Afficheur Réseau"
+    manufacturer: "Generic"
+    model: "TCP/IP"
+    description: "Afficheur via réseau TCP/IP"
+    max_lines: 4
+    max_columns: 40
+    supported_baud_rates: []  # N/A for network
+    supported_commands: ["clear", "write", "format"]
+    default_config:
+      connection_type: "network"
+      display_lines: 2
+      line_length: 40
+      theme: "lcd-blue"
+      network_host: "localhost"
+      network_port: 8080
+      network_protocol: "tcp"
+    features:
+      graphics: false
+      custom_characters: false
+      backlight: false
+      contrast: false
+      cursor: false
+
+# Modèles MostaGare spécifiques
+mostagare_profiles:
+  mostagare_standard:
+    name: "MostaGare Standard"
+    manufacturer: "MostaGare"
+    model: "MG-DISP-01"
+    description: "Afficheur standard MostaGare 2 lignes"
+    max_lines: 2
+    max_columns: 20
+    supported_baud_rates: [9600]
+    supported_commands: ["clear", "write", "format_payment"]
+    default_config:
+      connection_type: "serial"
+      display_lines: 2
+      line_length: 20
+      theme: "lcd-green"
+      baud_rate: 9600
+      alignment: ["center", "center"]
+      clear_on_connect: true
+    features:
+      graphics: false
+      custom_characters: false
+      backlight: true
+      contrast: true
+      cursor: false
+
+  mostagare_usb:
+    name: "MostaGare USB"
+    manufacturer: "MostaGare"
+    model: "MG-DISP-USB"
+    description: "Afficheur USB MostaGare avec support étendu"
+    max_lines: 3
+    max_columns: 20
+    supported_baud_rates: []
+    supported_commands: ["clear", "write", "format_payment", "format_ticket"]
+    default_config:
+      connection_type: "usb"
+      display_lines: 3
+      line_length: 20
+      theme: "lcd-blue"
+      usb_vendor_id: "1234"
+      usb_product_id: "5678"
+      alignment: ["center", "center", "center"]
+    features:
+      graphics: false
+      custom_characters: true
+      backlight: true
+      contrast: true
+      cursor: false

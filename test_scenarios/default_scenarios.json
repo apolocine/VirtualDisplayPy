@@ -1,0 +1,162 @@
+{
+  "scenarios": [
+    {
+      "id": "basic_display_test",
+      "name": "Test d'Affichage de Base",
+      "description": "Test simple d'affichage de texte",
+      "category": "basic",
+      "tags": [
+        "basic",
+        "display"
+      ],
+      "steps": [
+        {
+          "name": "Effacer l'afficheur",
+          "action": "clear",
+          "data": null,
+          "expected_result": {
+            "is_empty": true
+          },
+          "parameters": {},
+          "delay_after": 0
+        },
+        {
+          "name": "Afficher message simple",
+          "action": "send",
+          "data": "Hello World",
+          "expected_result": {
+            "content_match": "Hello World"
+          },
+          "parameters": {},
+          "delay_after": 0
+        },
+        {
+          "name": "Attendre 2 secondes",
+          "action": "wait",
+          "data": null,
+          "expected_result": null,
+          "parameters": {
+            "duration": 2000
+          },
+          "delay_after": 2000
+        }
+      ],
+      "expected_duration": 5.0,
+      "priority": "high",
+      "enabled": true
+    },
+    {
+      "id": "multiline_display_test",
+      "name": "Test d'Affichage Multi-lignes",
+      "description": "Test d'affichage sur plusieurs lignes",
+      "category": "functional",
+      "tags": [
+        "multiline",
+        "display"
+      ],
+      "steps": [
+        {
+          "name": "Effacer l'afficheur",
+          "action": "clear",
+          "data": null,
+          "expected_result": {
+            "is_empty": true
+          },
+          "parameters": {},
+          "delay_after": 0
+        },
+        {
+          "name": "Afficher ligne 1",
+          "action": "send",
+          "data": "Ligne 1",
+          "expected_result": {
+            "content_match": [
+              "Ligne 1"
+            ]
+          },
+          "parameters": {},
+          "delay_after": 0
+        },
+        {
+          "name": "Afficher ligne 2",
+          "action": "send",
+          "data": "Ligne 2",
+          "expected_result": {
+            "content_match": [
+              "Ligne 1",
+              "Ligne 2"
+            ]
+          },
+          "parameters": {},
+          "delay_after": 0
+        }
+      ],
+      "expected_duration": 3.0,
+      "priority": "medium",
+      "enabled": true
+    },
+    {
+      "id": "performance_test",
+      "name": "Test de Performance",
+      "description": "Test de performance et latence",
+      "category": "performance",
+      "tags": [
+        "performance",
+        "latency"
+      ],
+      "steps": [
+        {
+          "name": "Envoi rapide de messages",
+          "action": "send",
+          "data": "Performance Test",
+          "expected_result": {
+            "response_time": 50
+          },
+          "parameters": {
+            "repeat": 10,
+            "interval": 100
+          },
+          "delay_after": 0
+        }
+      ],
+      "expected_duration": 5.0,
+      "priority": "medium",
+      "enabled": true
+    },
+    {
+      "id": "usb_display_test",
+      "name": "Test d'Afficheur USB",
+      "description": "Test spécifique pour afficheur USB",
+      "category": "hardware",
+      "tags": [
+        "usb",
+        "hardware"
+      ],
+      "steps": [
+        {
+          "name": "Vérifier connexion USB",
+          "action": "validate",
+          "data": null,
+          "expected_result": {
+            "status": "active"
+          },
+          "parameters": {},
+          "delay_after": 0
+        },
+        {
+          "name": "Test message USB",
+          "action": "send",
+          "data": "USB Display OK",
+          "expected_result": {
+            "content_match": "USB Display OK"
+          },
+          "parameters": {},
+          "delay_after": 0
+        }
+      ],
+      "expected_duration": 3.0,
+      "priority": "high",
+      "enabled": true
+    }
+  ]
+}
